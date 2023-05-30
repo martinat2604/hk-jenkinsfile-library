@@ -10,18 +10,7 @@ pipeline{
     agent any
     stages{
 
-// Here we will call the  git checkout library.groovy       
-    //   This will be used to git checkout with particular branch specific
-        
-        // stage('Git Checkout'){
-        //     steps{
-        //     libgitCheckOut(
-        //         branch: "master",
-        //         url: "https://github.com/martinat2604/hk-test-java-app.git"
-        //     )
-        //   }
-        // }
-
+// Here we will call the  git checkout library.groovy.    
         stage('Git Check'){
             steps{
             libgitCheckOut(

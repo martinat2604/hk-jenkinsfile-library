@@ -1,14 +1,5 @@
 
-// This is also used for git checkout with the help of Map
-
-//  def call(Map stageParams) {
-//     checkout([
-//         $class: 'GitSCM',
-//         branches: [[name:  stageParams.branch ]],
-//         userRemoteConfigs: [[ url: stageParams.url ]]
-//     ])
-
-//   }
+// This is used for git checkout with the help of Map 
 
 
 def call(Map stageParams) {
@@ -20,7 +11,7 @@ def call(Map stageParams) {
         branches: [[name:  stageParams.branch ]],
         userRemoteConfigs: [[ url: stageParams.url ]]
     ])
-    
+
         script {
           env.LATEST_JAR_MAJOR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1|cut -d. -f1').trim()
           env.LATEST_JAR_MINOR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1|cut -d. -f2').trim()
