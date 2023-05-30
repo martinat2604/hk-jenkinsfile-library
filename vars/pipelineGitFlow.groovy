@@ -11,18 +11,9 @@ pipeline{
     agent any
     stages{
 
-            // stage('Checkout') {
-            //     steps {
-            //         sh "printenv | sort"
-            //         checkout scm
-            //         script {
-            //             env.LATEST_JAR_MAJOR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1|cut -d. -f1').trim()
-            //             env.LATEST_JAR_MINOR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1|cut -d. -f2').trim()
-            //             env.LATEST_JAR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1').trim()
-            //             env.VERSION = env.LATEST_JAR_MAJOR_VERSION + "." + env.LATEST_JAR_MINOR_VERSION + "." + env.BUILD_NUMBER
-            //             echo env.VERSION
-            //         }
-              
+// Here we will call the  git checkout library.groovy       
+    //   This will be used to git checkout with particular branch specific
+        
         // stage('Git Checkout'){
         //     steps{
         //     libgitCheckOut(
