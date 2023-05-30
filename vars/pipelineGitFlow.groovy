@@ -16,7 +16,7 @@ pipeline{
               //   extensions: [], 
               //   userRemoteConfigs: [[url: 'https://github.com/martinat2604/hk-test-java-app.git']])
 
-            gitCheckout(
+            checkout(
                 branch: "master",
                 url: "https://github.com/martinat2604/hk-test-java-app.git"
             )
