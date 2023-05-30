@@ -22,7 +22,7 @@ pipeline{
         //   }
         // }
 
-        stage('Git Checkout'){
+        stage('Git Check'){
             steps{
             libgitCheckOut(
                 branch: "$GIT_BRANCH",
