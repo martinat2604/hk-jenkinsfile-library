@@ -11,10 +11,16 @@
 //   }
 
 
-def call() {
+def call(Map stageParams) {
 
-        sh "printenv | sort"
-        checkout scm
+        sh "printenv | sort"  // It will print all the environment variables in the pipeline.
+
+        checkout([
+        $class: 'GitSCM',
+        branches: [[name:  stageParams.branch ]],
+        userRemoteConfigs: [[ url: stageParams.url ]]
+    ])
+    
         script {
           env.LATEST_JAR_MAJOR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1|cut -d. -f1').trim()
           env.LATEST_JAR_MINOR_VERSION = sh(returnStdout: true, script: 'cat gradle.properties| grep "version="|cut -d= -f2|cut -d- -f1|cut -d. -f2').trim()
