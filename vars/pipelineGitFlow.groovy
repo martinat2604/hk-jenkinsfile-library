@@ -1,13 +1,10 @@
 def call(body) {
 
 pipeline{
-
     agent any
-
     stages{
          
         stage('Git Checkout'){
-          when { expression {  params.action == 'create' } }
             steps{
             gitCheckout(
                 branch: "master",
@@ -15,6 +12,15 @@ pipeline{
             )
           }
         }
+
+        // stage('Unit Test maven'){
+        //     steps{
+        //        script{
+                   
+        //            libmvnTest()
+        //        }
+        //     }
+        // }
     }
   }
 }
