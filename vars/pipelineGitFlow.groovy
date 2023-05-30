@@ -1,9 +1,9 @@
-def call(body) {
+// def call(body) {
 
 pipeline{
     agent any
     stages{
-         
+
         stage('Git Checkout'){
             steps{
             libgitCheckOut(
@@ -14,7 +14,7 @@ pipeline{
         }
     }
   }
-}
+// }
 
 
  
