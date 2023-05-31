@@ -11,7 +11,7 @@ pipeline{
     stages{
 
 // Here we will call the  git checkout library.groovy.    
-        stage('Git Check'){
+        stage('Git Checkout'){
             steps{
             libgitCheckOut(
                 branch: "$GIT_BRANCH",
