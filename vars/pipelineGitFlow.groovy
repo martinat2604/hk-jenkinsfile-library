@@ -10,21 +10,17 @@ def call(body) {
         stages {
             // Here we will call the  git checkout library.groovy.
             stage('Git Checkout') {
-                steps {
-                    script(
-                        libgitCheckOut(
-                            branch: "$GIT_BRANCH",
-                            url: "$GIT_URL"
-                        )
+                steps {                   
+                    libgitCheckOut(
+                        branch: "$GIT_BRANCH",
+                        url: "$GIT_URL"
                     )
                 }
             }
 
             stage('Unit Test Maven') {
                 steps {
-                    script(
-                        libmvnTest()
-                    )
+                    libmvnTest()
                 }
             }
         }
