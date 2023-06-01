@@ -29,6 +29,9 @@
 def call(String buildStatus = 'STARTED') {
     // Build status of null means success.
     buildStatus = buildStatus ?: 'SUCCESS'
+    
+    // Set the Slack webhook URL
+    envVars.put("SLACK_WEBHOOK_URL", "https://hooks.slack.com/services/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" + slackToken)
 
     // Default values
     def colorName = 'RED'
@@ -37,7 +40,7 @@ def call(String buildStatus = 'STARTED') {
     def summary = "${subject} (${env.BUILD_URL})"
     def details = """<p>${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
     <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
-
+    
     if (buildStatus == 'STARTED') {
         color = '#D4DADF'
     } else if (buildStatus == 'SUCCESS') {
@@ -54,3 +57,4 @@ def call(String buildStatus = 'STARTED') {
 
     slackSend(color: color, message: msg)
 }
+
