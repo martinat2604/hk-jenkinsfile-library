@@ -19,13 +19,13 @@ def call(body) {
                 }
             }
 
-            // stage('Unit Test Maven') {
-            //     steps {
-            //         script{
-            //             libmvnTest()
-            //         }
-            //     }
-            // }
+            stage('Unit Test Maven') {
+                steps {
+                    script{
+                        libmvnTest()
+                    }
+                }
+            }
         }
     }
 }
