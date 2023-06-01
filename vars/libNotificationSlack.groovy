@@ -8,14 +8,15 @@ def call(String buildStatus = 'STARTED') {
     def colorCode = '#FF0000'
     def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
     def summary = "${subject} (${env.BUILD_URL})"
-    def details = """<p>${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+    // def details = """<p>${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+    // <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
 
-  if ( buildStatus == "STARTED" ) {
+  if ( buildStatus == 'STARTED' ) {
     color = 'YELLOW'
     colorCode = '#FFFF00'
+    // slackSend "<span style= 'color:${color}'><b>${buildStatus}</b></span>",color: colorCode, message: '',factDefinitions: [[name: "Job Name", template: "${JOB_CONSOLE_NAME}"],[name: "Branch Name", template: "${BRANCH_NAME}"],[name: "Build ID", template: "${BUILD_ID}"],[name: "Version", template: "${VERSION}"]]
   }
-  else if( buildStatus == "SUCCESS" ) { 
+  else if( buildStatus == 'SUCCESS' ) { 
     color = 'GREEN'
     colorCode = '#00FF00' 
   }
@@ -25,6 +26,6 @@ def call(String buildStatus = 'STARTED') {
   }
 }
 
-slackSend color: "<span style='color:${color}'><b>${buildStatus}</b></span>",color: colorCode, message: '',factDefinitions: [[name: "Job Name", template: "${JOB_CONSOLE_NAME}"],[name: "Branch Name", template: "${BRANCH_NAME}"],[name: "Build ID", template: "${BUILD_ID}"],[name: "Version", template: "${VERSION}"]]
- 
+slackSend "<span style= 'color:${color}'><b>${buildStatus}</b></span>",color: colorCode, message: '',factDefinitions: [[name: "Job Name", template: "${JOB_CONSOLE_NAME}"],[name: "Branch Name", template: "${BRANCH_NAME}"],[name: "Build ID", template: "${BUILD_ID}"],[name: "Version", template: "${VERSION}"]]
 
+ 
