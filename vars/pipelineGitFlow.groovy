@@ -19,9 +19,6 @@ def call(body) {
             }
 
             stage('Unit Test Maven') {
-                tools {
-                    maven 'maven3'
-                }
                 steps {
                     script{
                         libmvnTest()
