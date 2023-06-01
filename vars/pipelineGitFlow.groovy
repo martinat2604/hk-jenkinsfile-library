@@ -15,16 +15,17 @@ def call(body) {
                         branch: "$GIT_BRANCH",
                         url: "$GIT_URL"
                     )
+                    libNotificationSlack()
                 }
             }
 
-            stage('Unit Test Maven') {
-                steps {
-                    script{
-                        libmvnTest()
-                    }
-                }
-            }
+            // stage('Unit Test Maven') {
+            //     steps {
+            //         script{
+            //             libmvnTest()
+            //         }
+            //     }
+            // }
         }
     }
 }
