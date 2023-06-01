@@ -11,18 +11,20 @@ def call(String buildStatus = 'STARTED') {
     def details = """<p>${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
     <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
 
-  if ( buildStatus == "SUCCESS" ) {
-    slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+  if ( buildStatus == "STARTED" ) {
+    color = 'YELLOW'
+    colorCode = '#FFFF00'
   }
-  else if( buildStatus == "FAILURE" ) { 
-    slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
-  }
-  else if( buildStatus == "UNSTABLE" ) { 
-    slackSend color: "warning", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable"
+  else if( buildStatus == "SUCCESS" ) { 
+    color = 'GREEN'
+    colorCode = '#00FF00' 
   }
   else {
-    slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} its resulat was unclear"	
+    color = 'RED'
+    colorCode = '#FF0000'
   }
 }
 
+slackSend color: "<span style='color:${color}'><b>${buildStatus}</b></span>",color: colorCode, message: '',factDefinitions: [[name: "Job Name", template: "${JOB_CONSOLE_NAME}"],[name: "Branch Name", template: "${BRANCH_NAME}"],[name: "Build ID", template: "${BUILD_ID}"],[name: "Version", template: "${VERSION}"]]
+ 
 
