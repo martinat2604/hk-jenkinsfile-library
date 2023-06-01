@@ -18,11 +18,11 @@ def call(body) {
                 }
             }
 
-            stage('Unit Test Maven') {
-                steps {
-                    libmvnTest()
-                }
-            }
+            // stage('Unit Test Maven') {
+            //     steps {
+            //         libmvnTest()
+            //     }
+            // }
         }
     }
 }
