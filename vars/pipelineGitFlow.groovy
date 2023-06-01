@@ -20,7 +20,7 @@ def call(body) {
 
             stage('Unit Test Maven') {
                 tools {
-                    maven 'Maven 3.9.2'
+                    maven 'maven3'
                 }
                 steps {
                     script{
