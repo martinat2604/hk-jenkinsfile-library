@@ -15,7 +15,7 @@ def call(body) {
                         branch: "$GIT_BRANCH",
                         url: "$GIT_URL"
                     )
-                   
+                    libNotificationSlack()
                 }
             }
 
