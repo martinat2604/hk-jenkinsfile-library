@@ -17,18 +17,18 @@ def call (String channel='java') {
 //         colorCode = '#FF0000'
 //     }
 
-//   switch (env.BUILD_RESULT) {
-//     case 'SUCCESS':
-//       env.SLACK_COLOR = 'good'
-//       env.BUILD_RESULT = env.BUILD_RESULT.toLowerCase().capitalize()
-//       break
-//     // fallthrough to set warning for either of these conditions
-//     case 'UNSTABLE':
-//     case 'ABORTED':
-//       env.SLACK_COLOR = 'warning'
-//     default:
-//       env.SLACK_COLOR = 'danger'
-//   }
+  switch (env.BUILD_RESULT) {
+    case 'SUCCESS':
+      env.SLACK_COLOR = 'good'
+      env.BUILD_RESULT = env.BUILD_RESULT.toLowerCase().capitalize()
+      break
+    // fallthrough to set warning for either of these conditions
+    case 'UNSTABLE':
+    case 'ABORTED':
+      env.SLACK_COLOR = 'warning'
+    default:
+      env.SLACK_COLOR = 'danger'
+  }
 
   env.SLACK_USERTAGS = ''
   if (env.SLACK_COLOR != 'good') {
