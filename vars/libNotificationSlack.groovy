@@ -42,6 +42,6 @@ def call (String channel='java') {
     tokenCredentialId: 'slack-integration-1'
     // notifyCommitters requires bot user
     // botUser: true,
-    username: 'Jenkins'  // override display name
+    // override display name
   )
 }
