@@ -41,7 +41,7 @@ def call (String channel='java') {
     teamDomain: 'optus-nzp9955',
     tokenCredentialId: 'slack-integration-1'
     // notifyCommitters requires bot user
-    botUser: true,
+    // botUser: true,
     username: 'Jenkins'  // override display name
   )
 }
