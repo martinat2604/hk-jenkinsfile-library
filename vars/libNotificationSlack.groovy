@@ -5,17 +5,17 @@ def call (String channel='java') {
   //if (env.BUILD_RESULT == 'SUCCESS') {
   //if (['UNSTABLE', 'ABORTED'].contains(env.BUILD_RESULT)) {
   
-  // Override default values based on build status
-    if (env.BUILD_RESULT == 'STARTED') {
-        color = 'YELLOW'
-        colorCode = '#FFFF00'
-    } else if (env.BUILD_RESULT == 'SUCCESS') {
-        color = 'GREEN'
-        colorCode = '#00FF00'
-    } else {
-        color = 'RED'
-        colorCode = '#FF0000'
-    }
+//   // Override default values based on build status
+//     if (env.BUILD_RESULT == 'STARTED') {
+//         color = 'YELLOW'
+//         colorCode = '#FFFF00'
+//     } else if (env.BUILD_RESULT == 'SUCCESS') {
+//         color = 'GREEN'
+//         colorCode = '#00FF00'
+//     } else {
+//         color = 'RED'
+//         colorCode = '#FF0000'
+//     }
 
 //   switch (env.BUILD_RESULT) {
 //     case 'SUCCESS':
